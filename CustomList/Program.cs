@@ -10,6 +10,24 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
+            CustomList<string> testList = new CustomList<string>();
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+            testList.Add("hi");
+
+
 
         }
     }
