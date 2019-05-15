@@ -9,24 +9,16 @@ namespace CustomList
     public class CustomList<T>/* where T : IComparable, IComparable<T>, IEquatable<T>*/
     {
         //member variables (HAS A)
-        public T[] baseArray = new T[4];
+        public T[] baseArray;
         private int capacity;
         private int count;
         public int Capacity
         {
             get
             {
-                capacity = 0;
-                foreach (T item in baseArray)
-                {
-                    capacity++;
-                }
                 return capacity;
             }
-            set
-            {
-                capacity = value;
-            }
+
         }
         public int Count
         {
@@ -45,7 +37,7 @@ namespace CustomList
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new IndexOutOfRangeException();
                 }
             }
             set
@@ -56,7 +48,7 @@ namespace CustomList
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new IndexOutOfRangeException();
                 }
             }
         }
@@ -65,6 +57,8 @@ namespace CustomList
         public CustomList()
         {
             count = 0;
+            capacity = 4;
+            baseArray = new T[capacity];
         }
         //member methods (CAN DO)
         public void Add(T item)
@@ -84,29 +78,62 @@ namespace CustomList
             baseArray[j] = item;
             count++;
         }
+        //public void Remove(T item)
+        //{
+        //    for (int i = 0; i < Count; i++)
+        //    { 
+        //        if (Equals(item, baseArray[i]))
+        //        {
+        //            for (int j = i; j < Count; j++)
+        //            {
+        //                baseArray[j] = baseArray[j + 1];
+        //            }
+        //            count--;
+        //            break;
+        //        }
+        //    }
+        //}
         public void Remove(T item)
         {
-            for (int i = 0; i < Count; i++)
-            { 
-                if (Equals(item, baseArray[i]))
+            for (int k = 0; k < Count; k++)
+            {
+                if (Equals(item, baseArray[k]))
                 {
-                    for (int j = i; j < Count; j++)
+                    T[] tempArray = new T[Count];
+                    int i = 0;
+                    int j = i;
+                    for (; j < Count; i++)
                     {
-                        baseArray[j] = baseArray[j + 1];
+                        if (!Equals(item, baseArray[i]))
+                        {
+                            tempArray[j] = baseArray[i];
+                            j++;
+                        }
+                        else if (i == j && Equals(item, baseArray[i]))
+                        {
+                            count--;
+                        }
+                        else
+                        {
+                            tempArray[j] = baseArray[i];
+                            j++;
+                        }
                     }
-                    count--;
+                    baseArray = tempArray;
                     break;
                 }
             }
+        }
+        public override string ToString()
+        {
+            string newString = "";
+            for(int i = 0; i < Count; i++)
+            {
+                newString += baseArray[i];
+            }
+            return newString;
         }
 
     }
 }
 
-//I want the constructor to generate an array of 4 index values.
-//I need to put item in an array at the zero value.
-//I need to put item in an array at the first empty value.
-
-    //If count > capacity, increase capacity.
-
-    //I need to find the count, which is the number of actual items in the list. Do I 

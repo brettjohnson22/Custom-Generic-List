@@ -52,6 +52,7 @@
     <Compile Include="AddUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoveUnitTests.cs" />
+    <Compile Include="ToStringTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
