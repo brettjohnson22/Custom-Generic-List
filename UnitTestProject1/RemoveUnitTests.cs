@@ -12,30 +12,96 @@ namespace UnitTestProject1
         {   
             //arrange
             CustomList<string> testList = new CustomList<string>();
-            testList[0] = "one";
+            testList.Add("one");
 
             //act
             testList.Remove("one");
-
+  
             //assert
             Assert.AreEqual(null, testList[0]);
         }
-
-        public void Remove_ZeroIndexFromTwoLengthList_MoveIndezOneToZero()
+        [TestMethod]
+        public void Remove_ZeroIndexFromTwoLengthList_MoveIndexOneToZero()
         {
             //arrange
             CustomList<string> testList = new CustomList<string>();
-            testList[0] = "one";
-            testList[1] = "two";
+            testList.Add("one");
+            testList.Add("two");
             string expectedValue = "two";
+            string actualValue;
 
             //act
             testList.Remove("one");
+            actualValue = testList[0];
 
             //assert
-            Assert.AreEqual(expectedValue, testList[0]);
+            Assert.AreEqual(expectedValue, actualValue);
         }
+        [TestMethod]
+        public void Remove_ChangeCountAfterRemovingItem()
+        {
+            //arrange
+            CustomList<string> testList = new CustomList<string>();
+            testList.Add("one");
+            int expectedValue = 0;
+            int actualValue;
 
-        public void Remove_
+            //act
+            testList.Remove("one");
+            actualValue = testList.Count;
+            
+            //assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+        [TestMethod]
+        public void Remove_RemoveANonIncludedItemWontRemoveAnything()
+        {
+            //arrange
+            CustomList<string> testList = new CustomList<string>();
+            testList.Add("one");
+            string expectedValue = "one";
+            string actualValue;
+
+            //act
+            testList.Remove("two");
+            actualValue = testList[0];
+            
+            //assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+        [TestMethod]
+        public void Remove_RemoveOnlyFirstInstance()
+        {
+            //arrange
+            CustomList<string> testList = new CustomList<string>();
+            testList.Add("one");
+            testList.Add("two");
+            testList.Add("one");
+            string expectedValue = "one";
+
+            //act
+            testList.Remove("one");
+            string actualValue = testList[1];
+
+            //assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+        [TestMethod]
+        public void Remove_RemoveFinalItemFromList()
+        {
+            //arrange
+            CustomList<string> testList = new CustomList<string>();
+            testList.Add("one");
+            testList.Add("two");
+            testList.Add("three");
+            string expectedValue = "two";
+            string actualValue;
+            //act
+            testList.Remove("three");
+            actualValue = testList[testList.Count - 1];
+
+            //assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
     }
 }

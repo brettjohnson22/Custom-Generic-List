@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T>/* where T : IComparable, IComparable<T>, IEquatable<T>*/
     {
         //member variables (HAS A)
         public T[] baseArray = new T[4];
@@ -39,11 +39,25 @@ namespace CustomList
         {
             get
             {
-                return baseArray[index];
+                if (index <= Count)
+                {
+                    return baseArray[index];
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
             }
             set
             {
-                baseArray[index] = value;
+                if (index <= Count)
+                {
+                    baseArray[index] = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
             }
         }
 
@@ -57,11 +71,11 @@ namespace CustomList
         {
             if(Count == Capacity)
             {
-                int swapCap = Capacity;
+                int swapCapacity = Capacity;
                 T[] swapArray = baseArray;
                 baseArray = new T[Capacity + Capacity];
                 capacity += capacity;
-                for (int i = 0; i < swapCap; i++)
+                for (int i = 0; i < swapCapacity; i++)
                 {
                     baseArray[i] = swapArray[i];
                 }
@@ -70,13 +84,21 @@ namespace CustomList
             baseArray[j] = item;
             count++;
         }
-        //public void Remove(T item)
-        //{
-        //    foreach (T arrayItem in baseArray)
-        //    {
-                
-        //    }
-        //}
+        public void Remove(T item)
+        {
+            for (int i = 0; i < Count; i++)
+            { 
+                if (Equals(item, baseArray[i]))
+                {
+                    for (int j = i; j < Count; j++)
+                    {
+                        baseArray[j] = baseArray[j + 1];
+                    }
+                    count--;
+                    break;
+                }
+            }
+        }
 
     }
 }
