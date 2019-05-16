@@ -19,6 +19,10 @@ namespace CustomList
             {
                 return capacity;
             }
+            set
+            {
+                capacity = value;
+            }
 
         }
         public int Count
@@ -127,6 +131,7 @@ namespace CustomList
         }
         public override string ToString()
         {
+            //stringbuilder
             string newString = "";
             for(int i = 0; i < Count; i++)
             {
@@ -146,6 +151,46 @@ namespace CustomList
                 addedList.Add(b[i]);
             }
             return addedList;
+        }
+        public static CustomList<T> operator- (CustomList<T>a, CustomList<T> b)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            for(int i = 0; i < a.count; i++)
+            {
+                newList.Add(a[i]);
+            }
+            for(int i = 0; i < b.count; i++)
+            {
+                newList.Remove(b[i]);
+            }
+            return newList;
+        }
+        public CustomList<T> Zip(CustomList<T> otherList)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            if (Count >= otherList.Count)
+            {
+                for (int i = 0; i < Count; i++)
+                {
+                    newList.Add(baseArray[i]);
+                    if (i < otherList.Count)
+                    {
+                        newList.Add(otherList[i]);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < otherList.Count; i++)
+                {
+                    if (i < Count)
+                    {
+                        newList.Add(baseArray[i]);
+                    }
+                    newList.Add(otherList[i]);
+                }
+            }
+            return newList;
         }
 
     }
