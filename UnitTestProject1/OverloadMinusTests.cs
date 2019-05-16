@@ -16,6 +16,7 @@ namespace UnitTestProject1
             CustomList<int> num3;
             int expectedResult = 2;
             int actualResult;
+
             //act
             num1.Add(1);
             num1.Add(3);
@@ -38,6 +39,7 @@ namespace UnitTestProject1
             CustomList<int> num3;
             int expectedResult = 3;
             int actualResult;
+
             //act
             num1.Add(1);
             num1.Add(3);
@@ -60,6 +62,7 @@ namespace UnitTestProject1
             CustomList<int> num3;
             int expectedResult = 0;
             int actualResult;
+
             //act
             num1.Add(1);
             num1.Add(3);

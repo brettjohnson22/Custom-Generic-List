@@ -36,7 +36,7 @@ namespace CustomList
         {
             get
             {
-                if (index >= 0 && index <= Count)
+                if (index >= 0 && index < Count)
                 {
                     return baseArray[index];
                 }
@@ -47,7 +47,7 @@ namespace CustomList
             }
             set
             {
-                if (index >= 0 && index <= Count)
+                if (index >= 0 && index < Count)
                 {
                     baseArray[index] = value;
                 }
@@ -106,7 +106,10 @@ namespace CustomList
                     j++;
                 }
             }
-            baseArray = tempArray;
+            if (removed)
+            {
+                baseArray = tempArray;
+            }
             return removed;
         }
         public override string ToString()

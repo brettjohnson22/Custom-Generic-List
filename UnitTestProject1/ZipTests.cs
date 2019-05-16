@@ -29,7 +29,6 @@ namespace UnitTestProject1
 
             //assert
             Assert.AreEqual(expectedResult, actualResult);
-
         }
         [TestMethod]
         public void Zip_CheckOneIndex()
@@ -40,6 +39,7 @@ namespace UnitTestProject1
             CustomList<int> newList;
             int expectedResult = 2;
             int actualResult;
+
             //act
             oddList.Add(1);
             oddList.Add(3);
@@ -49,9 +49,9 @@ namespace UnitTestProject1
             evenList.Add(6);
             newList = oddList.Zip(evenList);
             actualResult = newList[1];
+
             //assert
             Assert.AreEqual(actualResult, expectedResult);
-
         }
         [TestMethod]
         public void Zip_CheckLastIndex()
@@ -62,6 +62,7 @@ namespace UnitTestProject1
             CustomList<int> newList;
             int expectedResult = 6;
             int actualResult;
+
             //act
             oddList.Add(1);
             oddList.Add(3);
@@ -71,6 +72,7 @@ namespace UnitTestProject1
             evenList.Add(6);
             newList = oddList.Zip(evenList);
             actualResult = newList[5];
+
             //assert
             Assert.AreEqual(actualResult, expectedResult);
         }
@@ -83,6 +85,7 @@ namespace UnitTestProject1
             CustomList<int> newList;
             int expectedResult = 10;
             int actualResult;
+
             //act
             oddList.Add(1);
             oddList.Add(3);
@@ -94,6 +97,7 @@ namespace UnitTestProject1
             evenList.Add(10);
             newList = oddList.Zip(evenList);
             actualResult = newList[7];
+
             //assert
             Assert.AreEqual(actualResult, expectedResult);
         }
@@ -106,6 +110,7 @@ namespace UnitTestProject1
             CustomList<int> newList;
             int expectedResult = 9;
             int actualResult;
+
             //act
             oddList.Add(1);
             oddList.Add(3);
@@ -117,6 +122,7 @@ namespace UnitTestProject1
             evenList.Add(6);
             newList = oddList.Zip(evenList);
             actualResult = newList[7];
+
             //assert
             Assert.AreEqual(actualResult, expectedResult);
         }

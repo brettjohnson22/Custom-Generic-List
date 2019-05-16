@@ -27,12 +27,13 @@ namespace UnitTestProject1
             CustomList<int> testList = new CustomList<int>();
             int value = 3;
             int value1 = 5;
+
             //act
             testList.Add(value);
             testList.Add(value1);
+
             //assert
             Assert.AreEqual(value1, testList[1]);
-
         }
         [TestMethod]
         public void Add_PositiveInt4Index()
@@ -41,15 +42,16 @@ namespace UnitTestProject1
             CustomList<int> testList = new CustomList<int>();
             int value = 2;
             int value1 = 5;
+
             //act
             testList.Add(value);
             testList.Add(value);
             testList.Add(value);
             testList.Add(value);
             testList.Add(value1);
+
             //assert
             Assert.AreEqual(value1, testList[4]);
-
         }
         [TestMethod]
         public void Add_PositiveInt_CheckCount()
@@ -74,6 +76,7 @@ namespace UnitTestProject1
             //arrange
             CustomList<string> testList = new CustomList<string>();
             string value = "testString";
+
             //act
             testList.Add(value);
 
@@ -87,6 +90,7 @@ namespace UnitTestProject1
             CustomList<string> testList = new CustomList<string>();
             string value = "testString";
             string value1 = "nextString";
+
             //act
             testList.Add(value);
             testList.Add(value1);
@@ -102,6 +106,7 @@ namespace UnitTestProject1
             string value = "testString";
             int countBeforeAdd;
             int countAfterAdd;
+
             //act
             countBeforeAdd = testList.Count;
             testList.Add(value);
@@ -126,10 +131,9 @@ namespace UnitTestProject1
             testList.Add(value);
             testList.Add(value);
             testCapacity = testList.Capacity;
+
             //assert
             Assert.AreEqual(8, testCapacity);
-
         }
-
     }
 }

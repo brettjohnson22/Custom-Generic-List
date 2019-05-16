@@ -22,7 +22,6 @@ namespace UnitTestProject1
             num1.Add(2);
             num2.Add(3);
             num2.Add(4);
-
             num3 = num1 + num2;
             actualResult = num3[3];
 
@@ -38,6 +37,7 @@ namespace UnitTestProject1
             CustomList<int> num3;
             int expectedResult = 6;
             int actualResult;
+
             //act
             num1.Add(1);
             num1.Add(2);
@@ -47,6 +47,7 @@ namespace UnitTestProject1
             num2.Add(6);
             num3 = num1 + num2;
             actualResult = num3[5];
+
             //assert
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -65,7 +66,6 @@ namespace UnitTestProject1
             num1.Add(2);
             num2.Add(3);
             num2.Add(4);
-
             num3 = num1 + num2;
             actualResult = num3.Count;
 

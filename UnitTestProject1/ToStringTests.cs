@@ -14,11 +14,13 @@ namespace UnitTestProject1
             CustomList<string> testList = new CustomList<string>();
             string expectedResult = "Hello World!";
             string actualResult;
+
             //act
             testList.Add("Hello ");
             testList.Add("World");
             testList.Add("!");
             actualResult = testList.ToString();
+
             //assert
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -29,11 +31,13 @@ namespace UnitTestProject1
             CustomList<char> testList = new CustomList<char>();
             string expectedResult = "ABC";
             string actualResult;
+
             //act
             testList.Add('A');
             testList.Add('B');
             testList.Add('C');
             actualResult = testList.ToString();
+
             //assert
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -44,11 +48,13 @@ namespace UnitTestProject1
             CustomList<int> testList = new CustomList<int>();
             string expectedResult = "123";
             string actualResult;
+
             //act
             testList.Add(1);
             testList.Add(2);
             testList.Add(3);
             actualResult = testList.ToString();
+
             //assert
             Assert.AreEqual(expectedResult, actualResult);
         }
