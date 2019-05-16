@@ -1,25 +1,42 @@
-CustomList<T> operator- overload method
+CustomList<T> operator- Overload Method
 
 C# Syntax
-CustomList<T>c = CustomList<T>a - CustomList<T>b
+CustomList<T> result = CustomList<T> paramterOne - CustomList<T> parameterTwo
 
 Parameters
-CustomList<T>a
-CustomList<T>b
+parameterOne CustomList<T> 
+The CustomList of objects that you want to run the subtract operation on.
+
+parameterTwo CustomList<T> 
+The CustomList of objects which will be subtracted from parameterOne, if parameterOne inclues any objects found within.
 
 Return Type
 CustomList<T>
-New CustomList<T> contains all elements of CustomList<T>a excepting those also found in CustomList<T>b.
+Returns a new CustomList<T> that contains all elements of CustomList<T> parameterOne excepting those also found in CustomList<T> parameterTwo.
 
 Example
-CustomList<int> num1 = new CustomList<int>();
-CustomList<int> num2 = new CustomList<int>();
-num1.Add(1);
-num1.Add(4);
-num1.Add(9);
-num2.Add(2);
-num2.Add(1);
-num2.Add(8);
-CustomList<int> num3 = num1 - num2;
 
-num3 will contain {4, 9}
+using System;
+using System.Collections.Generic;
+using CustomList;
+
+public class Example
+{
+    public static void Main()
+    {
+	CustomList<int> num1 = new CustomList<int>();
+	CustomList<int> num2 = new CustomList<int>();
+	num1.Add(1);
+	num1.Add(4);
+	num1.Add(9);
+	num2.Add(2);
+	num2.Add(1);
+	num2.Add(8);
+	CustomList<int> num3 = num1 - num2;
+    }
+}
+
+//num3 will contain {4, 9}
+
+Remarks
+The -operator overload in CustomList<T> creates a new CustomList<T> result and fills it with all values from parameterOne using the .Add method in for loop. It then runs the .Remove method on the new result list in a for loop, removing each object in parameterTwo if it contains any. The result list is then returned.
