@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>/* where T : IComparable, IComparable<T>, IEquatable<T>*/
+    public class CustomList<T> //: IEnumerator<T>, IEnumerable<T>
     {
         //member variables (HAS A)
         public T[] baseArray;
         private int capacity;
         private int count;
+        //private int position = -1;
         public int Capacity
         {
             get
@@ -132,6 +133,19 @@ namespace CustomList
                 newString += baseArray[i];
             }
             return newString;
+        }
+        public static CustomList<T> operator+ (CustomList<T> a, CustomList<T> b)
+        {
+            CustomList<T> addedList = new CustomList<T>();
+            for(int i = 0; i < a.Count; i++)
+            {
+                addedList.Add(a[i]);
+            }
+            for(int i = 0; i < b.Count; i++)
+            {
+                addedList.Add(b[i]);
+            }
+            return addedList;
         }
 
     }
