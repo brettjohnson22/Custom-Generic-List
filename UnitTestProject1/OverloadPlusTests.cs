@@ -72,5 +72,26 @@ namespace UnitTestProject1
             //assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+        [TestMethod]
+        public void PlusOverride_CheckAssignment()
+        {
+            //arrange
+            CustomList<int> num1 = new CustomList<int>();
+            CustomList<int> num2 = new CustomList<int>();
+            CustomList<int> num3;
+            int expectedResult = 4;
+            int actualResult;
+
+            //act
+            num1.Add(1);
+            num1.Add(2);
+            num2.Add(3);
+            num2.Add(4);
+            num1 += num2;
+            actualResult = num1.Count;
+
+            //assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
     }
 }

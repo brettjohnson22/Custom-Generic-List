@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T> //: IEnumerator<T>, IEnumerable<T>
+    public class CustomList<T> : IEnumerable where T : IComparable
     {
         //member variables (HAS A)
-        public T[] baseArray;
+        private T[] baseArray;
         private int capacity;
         private int count;
         //private int position = -1;
@@ -112,48 +113,43 @@ namespace CustomList
             }
             return removed;
         }
-        //public override string ToString()
-        //{
-        //    string newString = "";
-        //    for (int i = 0; i < Count; i++)
-        //    {
-        //        newString += baseArray[i];
-        //    }
-        //    return newString;
-        //}
+
         public override string ToString()
         {
-            StringBuilder builder = new StringBuilder();
+            StringBuilder builder = new StringBuilder("[ ");
             for (int i = 0; i < Count; i++)
             {
-                builder.Append(baseArray[i]);
-            }
+                builder.Append(baseArray[i] + ", ");
+            } 
+            builder.Length--;
+            builder.Length--;
+            builder.Append(" ]");
             string newString = builder.ToString();
             return newString;
         }
-        public static CustomList<T> operator+ (CustomList<T> a, CustomList<T> b)
+        public static CustomList<T> operator+ (CustomList<T> baseList, CustomList<T> listToAdd)
         {
             CustomList<T> addedList = new CustomList<T>();
-            for(int i = 0; i < a.Count; i++)
+            for(int i = 0; i < baseList.Count; i++)
             {
-                addedList.Add(a[i]);
+                addedList.Add(baseList[i]);
             }
-            for(int i = 0; i < b.Count; i++)
+            for(int i = 0; i < listToAdd.Count; i++)
             {
-                addedList.Add(b[i]);
+                addedList.Add(listToAdd[i]);
             }
             return addedList;
         }
-        public static CustomList<T> operator- (CustomList<T>a, CustomList<T> b)
+        public static CustomList<T> operator- (CustomList<T> baseList, CustomList<T> listToSubtract)
         {
             CustomList<T> newList = new CustomList<T>();
-            for(int i = 0; i < a.count; i++)
+            for(int i = 0; i < baseList.count; i++)
             {
-                newList.Add(a[i]);
+                newList.Add(baseList[i]);
             }
-            for(int i = 0; i < b.count; i++)
+            for(int i = 0; i < listToSubtract.count; i++)
             {
-                newList.Remove(b[i]);
+                newList.Remove(listToSubtract[i]);
             }
             return newList;
         }
@@ -184,6 +180,14 @@ namespace CustomList
             }
             return newList;
         }
+        public IEnumerator GetEnumerator()
+        {
+            for(int index = 0; index < Count; index++)
+            {
+                yield return baseArray[index];
+            }
+        }
+
     }
 }
 

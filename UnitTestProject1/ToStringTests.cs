@@ -12,7 +12,7 @@ namespace UnitTestProject1
         {
             //arrange
             CustomList<string> testList = new CustomList<string>();
-            string expectedResult = "Hello World!";
+            string expectedResult = "[ Hello , World, ! ]";
             string actualResult;
 
             //act
@@ -29,7 +29,7 @@ namespace UnitTestProject1
         {
             //arrange
             CustomList<char> testList = new CustomList<char>();
-            string expectedResult = "ABC";
+            string expectedResult = "[ A, B, C ]";
             string actualResult;
 
             //act
@@ -46,7 +46,7 @@ namespace UnitTestProject1
         {
             //arrange
             CustomList<int> testList = new CustomList<int>();
-            string expectedResult = "123";
+            string expectedResult = "[ 1, 2, 3 ]";
             string actualResult;
 
             //act
