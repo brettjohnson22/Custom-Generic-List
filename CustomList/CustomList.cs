@@ -36,7 +36,7 @@ namespace CustomList
         {
             get
             {
-                if (index <= Count)
+                if (index >= 0 && index <= Count)
                 {
                     return baseArray[index];
                 }
@@ -47,7 +47,7 @@ namespace CustomList
             }
             set
             {
-                if (index <= Count)
+                if (index >= 0 && index <= Count)
                 {
                     baseArray[index] = value;
                 }
@@ -57,7 +57,6 @@ namespace CustomList
                 }
             }
         }
-
         //constructor (SPAWNER)
         public CustomList()
         {
@@ -83,51 +82,32 @@ namespace CustomList
             baseArray[j] = item;
             count++;
         }
-        //public void Remove(T item)
-        //{
-        //    for (int i = 0; i < Count; i++)
-        //    { 
-        //        if (Equals(item, baseArray[i]))
-        //        {
-        //            for (int j = i; j < Count; j++)
-        //            {
-        //                baseArray[j] = baseArray[j + 1];
-        //            }
-        //            count--;
-        //            break;
-        //        }
-        //    }
-        //}
-        public void Remove(T item)
+        public bool Remove(T item)
         {
-            for (int k = 0; k < Count; k++)
+            bool removed = false;
+            T[] tempArray = new T[Count];
+            int i = 0;
+            int j = i;
+            for (; j < Count; i++)
             {
-                if (Equals(item, baseArray[k]))
+                if (!Equals(item, baseArray[i]))
                 {
-                    T[] tempArray = new T[Count];
-                    int i = 0;
-                    int j = i;
-                    for (; j < Count; i++)
-                    {
-                        if (!Equals(item, baseArray[i]))
-                        {
-                            tempArray[j] = baseArray[i];
-                            j++;
-                        }
-                        else if (i == j && Equals(item, baseArray[i]))
-                        {
-                            count--;
-                        }
-                        else
-                        {
-                            tempArray[j] = baseArray[i];
-                            j++;
-                        }
-                    }
-                    baseArray = tempArray;
-                    break;
+                    tempArray[j] = baseArray[i];
+                    j++;
+                }
+                else if (i == j && Equals(item, baseArray[i]))
+                {
+                    count--;
+                    removed = true;
+                }
+                else
+                {
+                    tempArray[j] = baseArray[i];
+                    j++;
                 }
             }
+            baseArray = tempArray;
+            return removed;
         }
         public override string ToString()
         {
@@ -192,7 +172,6 @@ namespace CustomList
             }
             return newList;
         }
-
     }
 }
 

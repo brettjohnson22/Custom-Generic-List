@@ -8,7 +8,6 @@ namespace UnitTestProject1
     public class RemoveUnitTests
     {
         [TestMethod]
-        //[ExpectedException(typeof(IndexOutOfRangeException))]
         public void Remove_ZeroIndexFromOneLengthList()
         {   
             //arrange
@@ -23,7 +22,6 @@ namespace UnitTestProject1
             Assert.AreEqual(null, testList[0]);
         }
         [TestMethod]
-        //[ExpectedException(typeof(IndexOutOfRangeException))]
         public void Remove_ZeroIndexIntFromOneLengthList()
         {
             //arrange
@@ -39,7 +37,6 @@ namespace UnitTestProject1
             Assert.AreEqual(expectedValue, actualValue);
         }
         [TestMethod]
-        //[ExpectedException(typeof(IndexOutOfRangeException))]
         public void Remove_FinalCapacityInt()
         {
             //arrange
@@ -55,10 +52,10 @@ namespace UnitTestProject1
             actualValue = testList[3];
             Console.WriteLine(actualValue);
             //assert
+            Assert.AreEqual(expectedValue, actualValue);
             
         }
         [TestMethod]
-        //[ExpectedException(typeof(IndexOutOfRangeException))]
         public void Remove_FinalCapacityString()
         {
             //arrange
@@ -67,12 +64,14 @@ namespace UnitTestProject1
             testList.Add("two");
             testList.Add("three");
             testList.Add("four");
+            string expectedValue = null;
             string actualValue;
             //act
             testList.Remove("four");
             actualValue = testList[3];
             Console.WriteLine(actualValue);
             //assert
+            Assert.AreEqual(expectedValue, actualValue);
 
         }
         [TestMethod]
