@@ -71,8 +71,8 @@ namespace CustomList
             {
                 int swapCapacity = Capacity;
                 T[] swapArray = baseArray;
-                baseArray = new T[Capacity + Capacity];
-                capacity += capacity;
+                Capacity += Capacity;
+                baseArray = new T[Capacity];
                 for (int i = 0; i < swapCapacity; i++)
                 {
                     baseArray[i] = swapArray[i];
@@ -97,7 +97,6 @@ namespace CustomList
                 }
                 else if (i == j && Equals(item, baseArray[i]))
                 {
-                    count--;
                     removed = true;
                 }
                 else
@@ -108,18 +107,28 @@ namespace CustomList
             }
             if (removed)
             {
+                count--;
                 baseArray = tempArray;
             }
             return removed;
         }
+        //public override string ToString()
+        //{
+        //    string newString = "";
+        //    for (int i = 0; i < Count; i++)
+        //    {
+        //        newString += baseArray[i];
+        //    }
+        //    return newString;
+        //}
         public override string ToString()
         {
-            //stringbuilder
-            string newString = "";
-            for(int i = 0; i < Count; i++)
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < Count; i++)
             {
-                newString += baseArray[i];
+                builder.Append(baseArray[i]);
             }
+            string newString = builder.ToString();
             return newString;
         }
         public static CustomList<T> operator+ (CustomList<T> a, CustomList<T> b)
