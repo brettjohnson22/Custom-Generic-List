@@ -127,14 +127,10 @@ namespace CustomList
         }
         public void Clear()
         {
-            Clearer(this);
-        }
-        public static void Clearer(CustomList<T> list)
-        {
-            int temp = list.Count;
+            int temp = Count;
             for (int i = 0; i < temp; i++)
             {
-                list.Remove(list.baseArray[0]);
+                Remove(baseArray[0]);
             }
         }
         public override string ToString()

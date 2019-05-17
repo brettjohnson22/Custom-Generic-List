@@ -8,7 +8,7 @@ namespace UnitTestProject1
     public class ContainsTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Contains_DoesContain_True()
         {
             //arrange
             CustomList<int> test = new CustomList<int>();
@@ -24,6 +24,24 @@ namespace UnitTestProject1
 
             //assert
             Assert.IsTrue(actualResult);
+        }
+        [TestMethod]
+        public void Contains_DoesNotContain_False()
+        {
+            //arrange
+            CustomList<int> test = new CustomList<int>();
+            test.Add(2);
+            test.Add(4);
+            test.Add(1);
+            test.Add(6);
+            test.Add(8);
+            bool actualResult;
+
+            //act
+            actualResult = test.Contains(7);
+
+            //assert
+            Assert.IsFalse(actualResult);
         }
     }
 }
