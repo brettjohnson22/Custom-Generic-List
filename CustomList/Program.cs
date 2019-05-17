@@ -10,7 +10,15 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-
+            CustomList<int> test = new CustomList<int>();
+            test.Add(2);
+            test.Add(4);
+            test.Add(1);
+            test.Add(6);
+            test.Add(8);
+            test.Clear();
+            Console.WriteLine(test.Count);
+            Console.ReadLine();
         }
     }
 }
