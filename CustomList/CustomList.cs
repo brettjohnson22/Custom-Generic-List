@@ -13,7 +13,8 @@ namespace CustomList
         private T[] baseArray;
         private int capacity;
         private int count;
-        //private int position = -1;
+        private Comparer comparer;
+                
         public int Capacity
         {
             get
@@ -29,10 +30,10 @@ namespace CustomList
         public int Count
         {
             get
-            { 
+            {
                 return count;
             }
-         }
+        }
         public T this[int index]
         {
             get
@@ -68,7 +69,7 @@ namespace CustomList
         //member methods (CAN DO)
         public void Add(T item)
         {
-            if(Count == Capacity)
+            if (Count == Capacity)
             {
                 int swapCapacity = Capacity;
                 T[] swapArray = baseArray;
@@ -120,34 +121,34 @@ namespace CustomList
             for (int i = 0; i < Count; i++)
             {
                 builder.Append(baseArray[i] + ", ");
-            } 
+            }
             builder.Length--;
             builder.Length--;
             builder.Append(" ]");
             string newString = builder.ToString();
             return newString;
         }
-        public static CustomList<T> operator+ (CustomList<T> baseList, CustomList<T> listToAdd)
+        public static CustomList<T> operator +(CustomList<T> baseList, CustomList<T> listToAdd)
         {
             CustomList<T> addedList = new CustomList<T>();
-            for(int i = 0; i < baseList.Count; i++)
+            for (int i = 0; i < baseList.Count; i++)
             {
                 addedList.Add(baseList[i]);
             }
-            for(int i = 0; i < listToAdd.Count; i++)
+            for (int i = 0; i < listToAdd.Count; i++)
             {
                 addedList.Add(listToAdd[i]);
             }
             return addedList;
         }
-        public static CustomList<T> operator- (CustomList<T> baseList, CustomList<T> listToSubtract)
+        public static CustomList<T> operator -(CustomList<T> baseList, CustomList<T> listToSubtract)
         {
             CustomList<T> newList = new CustomList<T>();
-            for(int i = 0; i < baseList.count; i++)
+            for (int i = 0; i < baseList.count; i++)
             {
                 newList.Add(baseList[i]);
             }
-            for(int i = 0; i < listToSubtract.count; i++)
+            for (int i = 0; i < listToSubtract.count; i++)
             {
                 newList.Remove(listToSubtract[i]);
             }
@@ -182,12 +183,26 @@ namespace CustomList
         }
         public IEnumerator GetEnumerator()
         {
-            for(int index = 0; index < Count; index++)
+            for (int index = 0; index < Count; index++)
             {
                 yield return baseArray[index];
             }
         }
-
+        public void Sort()
+        {
+            for (int i = 0; i < Count - 1; i++)
+            {
+                for (int j = 0; j < Count - 1; j++)
+                {
+                    if (Comparer<T>.Default.Compare(baseArray[j], baseArray[j + 1]) > 0)
+                    {
+                        T temp = baseArray[j];
+                        baseArray[j] = baseArray[j + 1];
+                        baseArray[j + 1] = temp;
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -63,21 +63,27 @@ namespace CustomList
             //string tester = test.ToString();
 
             //Console.WriteLine(test.ToString());
+            //Console.ReadLine()
+            //    CustomList<int> testList = new CustomList<int>();
+            //    testList.Add(1);
+            //    testList.Add(2);
+            //    testList.Add(3);
+            //    testList.Add(4);
+            //    testList.Add(5);
+            //    foreach (int el in testList)
+            //    {
+            //        Console.WriteLine(el);
+            //    }
             //Console.ReadLine();
-
-
-                CustomList<int> testList = new CustomList<int>();
-                testList.Add(1);
-                testList.Add(2);
-                testList.Add(3);
-                testList.Add(4);
-                testList.Add(5);
-                foreach (int el in testList)
-                {
-                    Console.WriteLine(el);
-                }
+            CustomList<int> test = new CustomList<int>();
+            test.Add(2);
+            test.Add(4);
+            test.Add(1);
+            test.Add(6);
+            test.Add(8);
+            test.Sort();
+            Console.WriteLine(test);
             Console.ReadLine();
-
 
         }
 
