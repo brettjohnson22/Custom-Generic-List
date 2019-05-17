@@ -155,12 +155,16 @@ namespace CustomList
         }
         public CustomList<T> Zip(CustomList<T> otherList)
         {
+            return Zipper(this, otherList);
+        }
+        public static CustomList<T> Zipper(CustomList <T> mainList, CustomList<T> otherList)
+        {
             CustomList<T> newList = new CustomList<T>();
-            if (Count >= otherList.Count)
+            if (mainList.Count >= otherList.Count)
             {
-                for (int i = 0; i < Count; i++)
+                for (int i = 0; i < mainList.Count; i++)
                 {
-                    newList.Add(baseArray[i]);
+                    newList.Add(mainList.baseArray[i]);
                     if (i < otherList.Count)
                     {
                         newList.Add(otherList[i]);
@@ -171,15 +175,48 @@ namespace CustomList
             {
                 for (int i = 0; i < otherList.Count; i++)
                 {
-                    if (i < Count)
+                    if (i < mainList.Count)
                     {
-                        newList.Add(baseArray[i]);
+                        newList.Add(mainList.baseArray[i]);
                     }
                     newList.Add(otherList[i]);
                 }
             }
             return newList;
         }
+        //public static void Zip(CustomList<T> mainList, CustomList<T> otherList)
+        //{
+        //    if (mainList.Count >= otherList.Count)
+        //    {
+        //        int i = 0;
+        //        int j = i;
+        //        for (; i < mainList.Count; i++)
+        //        {
+        //            if (i < otherList.Count)
+        //            {
+        //                T temp = mainList[i + 1];
+        //                mainList[i + 1] = otherList[j];
+        //                mainList
+        //            }
+        //            else
+        //            {
+
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        for (int i = 0; i < otherList.Count; i++)
+        //        {
+        //            if (i < Count)
+        //            {
+        //                newList.Add(baseArray[i]);
+        //            }
+        //            newList.Add(otherList[i]);
+        //        }
+        //    }
+        //    return newList;
+        //}
         public IEnumerator GetEnumerator()
         {
             for (int index = 0; index < Count; index++)
@@ -204,4 +241,8 @@ namespace CustomList
         }
     }
 }
-
+//I want to zip two lists together.
+//I want to take the first value of list2 and add it in after the first value of list one.
+//This will shift all of list1 forward by one.
+//The new list will be as long as the two lists combined.
+//
