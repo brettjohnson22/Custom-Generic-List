@@ -187,7 +187,7 @@ namespace CustomList
                 yield return baseArray[index];
             }
         }
-        public void Sort()
+        public void Sort() //Using Bubble Sort
         {
             for (int i = 0; i < Count - 1; i++)
             {
@@ -251,7 +251,7 @@ namespace CustomList
             }
             return index;
         }
-        public int IndexOf(T item, int startIndex)
+        public int IndexOf(T item, int startIndex) //Overload for search starting at startIndex
         {
             if (startIndex < Count)
             {
@@ -271,7 +271,7 @@ namespace CustomList
                 throw new IndexOutOfRangeException();
             }
         }
-        public int IndexOf(T item, int startIndex, int places)
+        public int IndexOf(T item, int startIndex, int places) //Overload for search starting at startIndex and searching the next 'places' number of elements
         {
             if (startIndex < Count)
             {

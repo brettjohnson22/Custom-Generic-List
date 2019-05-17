@@ -119,7 +119,7 @@ namespace UnitTestProject1
             Assert.AreEqual(expectedResult, actualResult);
         }
         [TestMethod]
-        public void IndexOf_SecondParameterOverload_NotFound()
+        public void IndexOf_SecondParameterOverload_OutsideOfCountNotFound()
         {
             //arrange
             CustomList<int> test = new CustomList<int>();
