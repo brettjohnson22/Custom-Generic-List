@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AddUnitTests.cs" />
     <Compile Include="ClearTests.cs" />
+    <Compile Include="ContainsTests.cs" />
     <Compile Include="JoinTests.cs" />
     <Compile Include="OverloadMinusTests.cs" />
     <Compile Include="OverloadPlusTests.cs" />

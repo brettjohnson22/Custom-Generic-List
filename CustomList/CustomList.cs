@@ -113,6 +113,18 @@ namespace CustomList
             }
             return removed;
         }
+        public bool Contains(T item)
+        {
+            bool contains = false;
+            for(int i = 0; i < Count; i++)
+            {
+                if(Equals(baseArray[i], item))
+                {
+                    contains = true;
+                }
+            }
+            return contains;
+        }
         public void Clear()
         {
             Clearer(this);

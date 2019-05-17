@@ -16,9 +16,11 @@ namespace CustomList
             test.Add(1);
             test.Add(6);
             test.Add(8);
-            test.Clear();
+
             Console.WriteLine(test.Count);
             Console.ReadLine();
+
+            List<int> tesert = new List<int>();
         }
     }
 }
