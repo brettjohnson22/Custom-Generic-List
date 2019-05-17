@@ -251,5 +251,46 @@ namespace CustomList
             }
             return index;
         }
+        public int IndexOf(T item, int startIndex)
+        {
+            if (startIndex < Count)
+            {
+                int index = -1;
+                for (int i = startIndex; i < Count; i++)
+                {
+                    if (Equals(baseArray[i], item))
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+                return index;
+            }
+            else
+            {
+                throw new IndexOutOfRangeException();
+            }
+        }
+        public int IndexOf(T item, int startIndex, int places)
+        {
+            if (startIndex < Count)
+            {
+                int index = -1;
+                for (int i = startIndex; i < Count && places > 0; i++)
+                {
+                    if (Equals(baseArray[i], item))
+                    {
+                        index = i;
+                        break;
+                    }
+                    places--;
+                }
+                return index;
+            }
+            else
+            {
+                throw new IndexOutOfRangeException();
+            }
+        }
     }
 }
