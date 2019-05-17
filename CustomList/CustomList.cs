@@ -43,7 +43,7 @@ namespace CustomList
                 }
                 else
                 {
-                    throw new IndexOutOfRangeException();
+                    throw new ArgumentOutOfRangeException();
                 }
             }
             set
@@ -54,7 +54,7 @@ namespace CustomList
                 }
                 else
                 {
-                    throw new IndexOutOfRangeException();
+                    throw new ArgumentOutOfRangeException();
                 }
             }
         }
@@ -268,7 +268,7 @@ namespace CustomList
             }
             else
             {
-                throw new IndexOutOfRangeException();
+                throw new ArgumentOutOfRangeException();
             }
         }
         public int IndexOf(T item, int startIndex, int places) //Overload for search starting at startIndex and searching the next 'places' number of elements
@@ -289,7 +289,7 @@ namespace CustomList
             }
             else
             {
-                throw new IndexOutOfRangeException();
+                throw new ArgumentOutOfRangeException();
             }
         }
         public void Reverse()
@@ -300,6 +300,34 @@ namespace CustomList
                 swapArray[Count - i] = baseArray[i - 1];
             }
             baseArray = swapArray;
+        }
+        public void Reverse(int startIndex, int places)//Overload to reverse elements in a specific range
+        {
+            if (startIndex < 0 || places < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else if (startIndex + places > Count)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                T[] swapArray = new T[Count];
+                for (int i = 0; i < Count; i++)
+                {
+                    if (i < startIndex || places <= 0)
+                    {
+                        swapArray[i] = baseArray[i];
+                    }
+                    else if (i >= startIndex && places > 0)
+                    {
+                        swapArray[i] = baseArray[Count - i - 1];
+                        places--;
+                    }
+                }
+                baseArray = swapArray;
+            }
         }
     }
 }

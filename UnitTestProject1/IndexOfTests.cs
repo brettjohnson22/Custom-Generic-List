@@ -100,7 +100,7 @@ namespace UnitTestProject1
             Assert.AreEqual(expectedResult, actualResult);
         }
         [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void IndexOf_ParameterOverload_OutOfRange()
         {
             //arrange

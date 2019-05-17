@@ -8,7 +8,7 @@ namespace UnitTestProject1
     public class ClearTests
     {
         [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Clear_ResultsInOutOfRangeExceptionAtZeroIndex()
         {
             //arrange

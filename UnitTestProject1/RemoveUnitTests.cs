@@ -8,7 +8,7 @@ namespace UnitTestProject1
     public class RemoveUnitTests
     {
         [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Remove_ZeroIndexFromOneLengthList()
         {   
             //arrange
@@ -23,7 +23,7 @@ namespace UnitTestProject1
             Assert.AreEqual(null, testList[0]);
         }
         [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void Remove_ZeroIndexIntFromOneLengthList()
         {
             //arrange
