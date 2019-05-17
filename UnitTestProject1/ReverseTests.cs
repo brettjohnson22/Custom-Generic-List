@@ -48,7 +48,7 @@ namespace UnitTestProject1
         {
             //arrange
             CustomList<char> testList = new CustomList<char>();
-            string expectedResult = "ADCBE";
+            string expectedResult = "AEDCBF";
             string actualResult;
 
             //act
@@ -57,7 +57,8 @@ namespace UnitTestProject1
             testList.Add('C');
             testList.Add('D');
             testList.Add('E');
-            testList.Reverse(1, 3);
+            testList.Add('F');
+            testList.Reverse(1, 4);
             actualResult = testList.ToString();
 
             //assert
