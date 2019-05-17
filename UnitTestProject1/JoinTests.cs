@@ -8,7 +8,7 @@ namespace UnitTestProject1
     public class JoinTests
     {
         [TestMethod]
-        public void ToString_StringsToString()
+        public void Join_StringsToStringSpace()
         {
             //arrange
             CustomList<string> testList = new CustomList<string>();
@@ -25,7 +25,7 @@ namespace UnitTestProject1
             Assert.AreEqual(expectedResult, actualResult);
         }
         [TestMethod]
-        public void ToString_CharsToString()
+        public void Join_CharsToStringCommaSpace()
         {
             //arrange
             CustomList<char> testList = new CustomList<char>();
@@ -42,7 +42,7 @@ namespace UnitTestProject1
             Assert.AreEqual(expectedResult, actualResult);
         }
         [TestMethod]
-        public void ToString_IntToString()
+        public void ToString_IntToStringComma()
         {
             //arrange
             CustomList<int> testList = new CustomList<int>();
@@ -54,6 +54,23 @@ namespace UnitTestProject1
             testList.Add(2);
             testList.Add(3);
             actualResult = testList.Join(",");
+
+            //assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void ToString_IntToStringNothing()
+        {
+            //arrange
+            CustomList<int> testList = new CustomList<int>();
+            string expectedResult = "123";
+            string actualResult;
+
+            //act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            actualResult = testList.Join("");
 
             //assert
             Assert.AreEqual(expectedResult, actualResult);
