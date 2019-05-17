@@ -292,5 +292,14 @@ namespace CustomList
                 throw new IndexOutOfRangeException();
             }
         }
+        public void Reverse()
+        {
+            T[] swapArray = new T[Count];
+            for(int i = Count; i > 0; i--)
+            {
+                swapArray[Count - i] = baseArray[i - 1];
+            }
+            baseArray = swapArray;
+        }
     }
 }
