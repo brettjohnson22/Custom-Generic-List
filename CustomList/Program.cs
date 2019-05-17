@@ -75,17 +75,16 @@ namespace CustomList
             //        Console.WriteLine(el);
             //    }
             //Console.ReadLine();
-            CustomList<int> test = new CustomList<int>();
-            test.Add(2);
-            test.Add(4);
-            test.Add(1);
-            test.Add(6);
-            test.Add(8);
-            test.Sort();
-            Console.WriteLine(test);
-            Console.ReadLine();
+            //CustomList<int> test = new CustomList<int>();
+            //test.Add(2);
+            //test.Add(4);
+            //test.Add(1);
+            //test.Add(6);
+            //test.Add(8);
+            //test.Sort();
+            //Console.WriteLine(test);
+            //Console.ReadLine();
 
         }
-
     }
 }

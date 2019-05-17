@@ -78,7 +78,6 @@ namespace UnitTestProject1
             //arrange
             CustomList<int> num1 = new CustomList<int>();
             CustomList<int> num2 = new CustomList<int>();
-            CustomList<int> num3;
             int expectedResult = 4;
             int actualResult;
 

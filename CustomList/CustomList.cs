@@ -13,7 +13,6 @@ namespace CustomList
         private T[] baseArray;
         private int capacity;
         private int count;
-        private Comparer comparer;
                 
         public int Capacity
         {

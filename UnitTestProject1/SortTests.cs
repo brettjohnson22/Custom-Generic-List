@@ -25,13 +25,46 @@ namespace UnitTestProject1
 
             //assert
             Assert.AreEqual(expectedResult, actualResult);
-
-
         }
         [TestMethod]
-        public void SortList_AscendingNumerical()
+        public void SortList_NumericalFirstInt()
         {
+            //arrange
+            CustomList<int> test = new CustomList<int>();
+            test.Add(2);
+            test.Add(4);
+            test.Add(1);
+            test.Add(6);
+            test.Add(8);
+            int expectedResult = 1;
+            int actualResult;
 
+            //act
+            test.Sort();
+            actualResult = test[0];
+
+            //assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void SortList_NumericalLastInt()
+        {
+            //arrange
+            CustomList<int> test = new CustomList<int>();
+            test.Add(2);
+            test.Add(4);
+            test.Add(1);
+            test.Add(6);
+            test.Add(8);
+            int expectedResult = 8;
+            int actualResult;
+
+            //act
+            test.Sort();
+            actualResult = test[4];
+
+            //assert
+            Assert.AreEqual(expectedResult, actualResult);
         }
     }
 }
