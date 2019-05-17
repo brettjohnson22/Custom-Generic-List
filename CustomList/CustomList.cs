@@ -113,46 +113,12 @@ namespace CustomList
             }
             return removed;
         }
-        public bool Contains(T item)
-        {
-            bool contains = false;
-            for(int i = 0; i < Count; i++)
-            {
-                if(Equals(baseArray[i], item))
-                {
-                    contains = true;
-                }
-            }
-            return contains;
-        }
-        public void Clear()
-        {
-            int temp = Count;
-            for (int i = 0; i < temp; i++)
-            {
-                Remove(baseArray[0]);
-            }
-        }
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder("");
             for (int i = 0; i < Count; i++)
             {
                 builder.Append(baseArray[i]);
-            }
-            string newString = builder.ToString();
-            return newString;
-        }
-        public string Join(string separator)
-        {
-            StringBuilder builder = new StringBuilder("");
-            for (int i = 0; i < Count; i++)
-            {
-                builder.Append(baseArray[i] + separator);
-            }
-            for (int i = 0; i < separator.Length; i++)
-            {
-                builder.Length--;
             }
             string newString = builder.ToString();
             return newString;
@@ -235,6 +201,55 @@ namespace CustomList
                     }
                 }
             }
+        }
+
+        //Extra Stuff
+        public string Join(string separator)
+        {
+            StringBuilder builder = new StringBuilder("");
+            for (int i = 0; i < Count; i++)
+            {
+                builder.Append(baseArray[i] + separator);
+            }
+            for (int i = 0; i < separator.Length; i++)
+            {
+                builder.Length--;
+            }
+            string newString = builder.ToString();
+            return newString;
+        }
+        public bool Contains(T item)
+        {
+            bool contains = false;
+            for (int i = 0; i < Count; i++)
+            {
+                if (Equals(baseArray[i], item))
+                {
+                    contains = true;
+                }
+            }
+            return contains;
+        }
+        public void Clear()
+        {
+            int temp = Count;
+            for (int i = 0; i < temp; i++)
+            {
+                Remove(baseArray[0]);
+            }
+        }
+        public int IndexOf(T item)
+        {
+            int index = -1;
+            for(int i = 0; i < Count; i++)
+            {
+                if (Equals(baseArray[i], item))
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
         }
     }
 }
