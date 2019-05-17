@@ -113,7 +113,6 @@ namespace CustomList
             }
             return removed;
         }
-
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder("[ ");
@@ -184,39 +183,6 @@ namespace CustomList
             }
             return newList;
         }
-        //public static void Zip(CustomList<T> mainList, CustomList<T> otherList)
-        //{
-        //    if (mainList.Count >= otherList.Count)
-        //    {
-        //        int i = 0;
-        //        int j = i;
-        //        for (; i < mainList.Count; i++)
-        //        {
-        //            if (i < otherList.Count)
-        //            {
-        //                T temp = mainList[i + 1];
-        //                mainList[i + 1] = otherList[j];
-        //                mainList
-        //            }
-        //            else
-        //            {
-
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        for (int i = 0; i < otherList.Count; i++)
-        //        {
-        //            if (i < Count)
-        //            {
-        //                newList.Add(baseArray[i]);
-        //            }
-        //            newList.Add(otherList[i]);
-        //        }
-        //    }
-        //    return newList;
-        //}
         public IEnumerator GetEnumerator()
         {
             for (int index = 0; index < Count; index++)
@@ -241,8 +207,3 @@ namespace CustomList
         }
     }
 }
-//I want to zip two lists together.
-//I want to take the first value of list2 and add it in after the first value of list one.
-//This will shift all of list1 forward by one.
-//The new list will be as long as the two lists combined.
-//
